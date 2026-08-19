@@ -21,7 +21,7 @@ function App() {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/appointments', {
+      const response = await fetch('https://clinic-appointment-system-q4p7.onrender.com/api/appointments', { 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ patientName, doctor, appointmentDate })
@@ -44,7 +44,7 @@ function App() {
   // Function to fetch all appointments for Admin View
   const fetchAppointments = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/appointments');
+      const response = await fetch('https://clinic-appointment-system-q4p7.onrender.com/api/appointments');
       const data = await response.json();
       if (response.ok) {
         setAppointmentsList(data.appointments);
