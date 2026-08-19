@@ -3,14 +3,18 @@ const sqlite3 = require('sqlite3').verbose();
 const cors = require('cors');
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(express.json());
 app.use(cors());
 
 // Connect to SQLite Database (creates a file named clinic.db automatically)
-const db = new sqlite3.Database('./clinic.db', (err) => {
+const path = require('path');
+const dbPath = path.join(__dirname, 'clinic.db');
+
+// Connect to SQLite Database (creates a file named clinic.db automatically)
+const db = new sqlite3.Database(dbPath, (err) => {
     if (err) {
         console.error('Error opening database', err.message);
     } else {
