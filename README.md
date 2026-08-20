@@ -1,29 +1,48 @@
-# Clinic Appointment System (3MTT Capstone Project)
+# 🏥 Clinic Appointment System (3MTT Capstone Project)
 
-## Overview
+A full-stack web application designed to simplify scheduling and managing medical appointments between patients and healthcare professionals. Built as part of the 3MTT Software Development program.
 
-The Clinic Appointment System is a beginner-friendly full-stack web application designed to streamline patient scheduling for local clinics. It eliminates long physical queues and paper-based record-keeping by allowing patients to book appointments online while providing receptionists with a centralized dashboard to track all visits.
+---
 
-## Features
+## 🚀 Live Links
+* **Live Application (Frontend):** [https://clinic-appointment-system-six.vercel.app](https://clinic-appointment-system-six.vercel.app)
+* **Backend API:** [https://clinic-appointment-system-q4p7.onrender.com](https://clinic-appointment-system-q4p7.onrender.com)
 
-* **Patient Booking Interface:** Allows patients to input their full name, select a specialist doctor, and pick an appointment date.
-* **Database Persistence:** Automatically saves all bookings securely using a lightweight SQLite database.
-* **Receptionist Admin Dashboard:** A toggleable admin view that displays all historical and incoming patient appointments in a clean tabular format.
+---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-* **Frontend:** React, HTML5, CSS3, JavaScript (Vite build tool)
-* **Backend:** Node.js, Express.js
-* **Database:** SQLite3
-* **Communication:** REST APIs with CORS support
+### **Frontend:**
+* React.js (Vite)
+* JavaScript (ES6+)
+* CSS3 / Responsive UI
 
-## Project Structure
+### **Backend:**
+* Node.js
+* Express.js
+* SQLite (Persistent Database)
+* CORS & Body-Parser middleware
 
-```text
-clinic-app/
-├── server/
-│   ├── server.js       # Backend server and SQLite database setup
-│   └── clinic.db       # Local SQLite database file (auto-generated)
-└── src/
-    ├── App.jsx         # Main React component (Patient form & Admin view)
-    └── main.jsx        # React application entry point    
+### **Deployment & Hosting:**
+* **Frontend Hosting:** Vercel
+* **Backend Hosting:** Render
+* **Version Control:** Git & GitHub
+
+---
+
+## ✨ Features
+* **Patient Booking Portal:** Clean, user-friendly interface allowing patients to book appointments by entering their name, selecting a preferred doctor, and picking an appointment date.
+* **Admin Management View:** Allows medical staff or administrators to view all scheduled appointments in real-time.
+* **RESTful API:** Secure backend endpoints handling `POST` requests for new bookings and `GET` requests for retrieving records.
+* **Database Integration:** Automatic table creation and persistent record storage using SQLite.
+
+---
+
+## ⚙️ Local Installation & Setup
+
+If you want to run this project locally on your machine, follow these steps:
+
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/Isaks11/clinic-appointment-system.git](https://github.com/Isaks11/clinic-appointment-system.git)
+cd clinic-appointment-system
