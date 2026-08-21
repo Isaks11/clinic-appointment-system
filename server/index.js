@@ -76,6 +76,12 @@ app.get('/api/reset', (req, res) => {
     });
 });
 
+
+// Root route for backend health check
+app.get('/', (req, res) => {
+    res.send("Clinic Appointment System Backend is Live!");
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
