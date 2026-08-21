@@ -63,15 +63,15 @@ app.get('/api/reset', (req, res) => {
     db.run("DROP TABLE IF EXISTS appointments", [], (err) => {
         if (err) return res.status(500).json({ error: err.message });
         
-        // Recreate the table using 'patientName' instead of 'fullName'
+        // Recreate using the exact column names your main server code uses
         db.run(`CREATE TABLE appointments (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             patientName TEXT,
             doctor TEXT,
-            date TEXT
+            appointmentDate TEXT
         )`, [], (createErr) => {
             if (createErr) return res.status(500).json({ error: createErr.message });
-            res.json({ message: "Database table dropped and recreated successfully with correct columns!" });
+            res.json({ message: "Database table successfully reset with correct columns!" });
         });
     });
 });
