@@ -63,19 +63,18 @@ app.get('/api/reset', (req, res) => {
     db.run("DROP TABLE IF EXISTS appointments", [], (err) => {
         if (err) return res.status(500).json({ error: err.message });
         
-        // Recreate the empty table immediately
+        // Recreate the table using 'patientName' instead of 'fullName'
         db.run(`CREATE TABLE appointments (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            fullName TEXT,
+            patientName TEXT,
             doctor TEXT,
             date TEXT
         )`, [], (createErr) => {
             if (createErr) return res.status(500).json({ error: createErr.message });
-            res.json({ message: "Database table dropped and recreated successfully! All data wiped." });
+            res.json({ message: "Database table dropped and recreated successfully with correct columns!" });
         });
     });
 });
-
 
 // Root route for backend health check
 app.get('/', (req, res) => {
