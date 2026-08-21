@@ -58,11 +58,21 @@ app.get('/api/appointments', (req, res) => {
     });
 });
 
-// --- ADD THIS NEW RESET ROUTE HERE ---
-app.delete('/api/reset', (req, res) => {
-    db.run("DELETE FROM appointments", [], (err) => {
+
+app.get('/api/reset', (req, res) => {
+    db.run("DROP TABLE IF EXISTS appointments", [], (err) => {
         if (err) return res.status(500).json({ error: err.message });
-        res.json({ message: "All appointments wiped successfully!" });
+        
+        // Recreate the empty table immediately
+        db.run(`CREATE TABLE appointments (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            fullName TEXT,
+            doctor TEXT,
+            date TEXT
+        )`, [], (createErr) => {
+            if (createErr) return res.status(500).json({ error: createErr.message });
+            res.json({ message: "Database table dropped and recreated successfully! All data wiped." });
+        });
     });
 });
 
