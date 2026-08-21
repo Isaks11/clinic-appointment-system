@@ -58,6 +58,14 @@ app.get('/api/appointments', (req, res) => {
     });
 });
 
+// --- ADD THIS NEW RESET ROUTE HERE ---
+app.delete('/api/reset', (req, res) => {
+    db.run("DELETE FROM appointments", [], (err) => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json({ message: "All appointments wiped successfully!" });
+    });
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
